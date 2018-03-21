@@ -1,0 +1,289 @@
+<html>
+	<head>
+		<title> Fractal Line </title>
+		<style>
+			body{
+				background-color: darkslategrey
+			}
+			h1{
+				text-align: center;
+				text-emphasis-color: black;
+				border: solid black 2px;
+			}
+			h4{
+				text-align: center;
+				text-emphasis-color: black;
+			}
+			input{
+				align-content: center;
+				margin-left: 530px;
+			}
+			canvas{
+				background-color: white;
+				align-content: center;
+				margin-top: 100px;
+				margin-left: 300px;
+				
+			}
+			      h2
+        {
+            text-decoration-color: white;
+            text-emphasis-color: white;
+            color: white;
+            text-align:justify;
+            text-decoration-color: antiquewhite;
+            text-decoration-line:underline;
+            
+        }
+        ul
+        {
+    list-style-type:none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:black;
+        }
+        li
+        {
+            float: left;
+        }
+  li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration:inherit;
+}
+        li a:hover ,drpdown:hover .drpbtn
+        {
+            background-color: aqua;
+        }
+        li.dropdown {
+    display: inline-block;
+}
+        .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+			.button{
+            background-color: red;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+        }
+        .button1{
+            background-color: blue;
+            border: none;
+    color: white;
+    padding: 5px 10px;
+            text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+        }
+        .button2{
+            background-color: orange;
+            border: none;
+    color: white;
+    padding: 5px 10px;
+            text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+        }
+        .button3{
+            background-color:brown ;
+            border: none;
+    color: white;
+    padding: 5px 10px;
+            text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+        }
+        .button4{
+            background-color:navy;
+            border: none;
+    color: white;
+    padding: 5px 10px;
+            text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 10px;
+    cursor: pointer;
+        }
+        .button5{
+            background-color:navy;
+            border: none;
+    color: white;
+    padding: 5px 10px;
+            text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 10px;
+    cursor: pointer;
+        }
+		</style>
+	</head>
+	<body>
+		 <ul>
+            <li class='active'><a href="Main_window.html">HOME</a></li>
+        <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">ASSIGNMENT</a>
+    <div class="dropdown-content">
+      <a class='active' >Fractal Line Animation</a>
+        <a href="DW.html">Driver Wheel</a>
+		<a href="circle.html">Interface in Assignment 1</a>
+		<a href="InterfaceDriverWheel.html">Interface Modification for Driver Wheel</a>
+		<a href="Fractal.html">Fractal Diagrams</a>
+    </div>
+    </li>
+    </ul>
+	<h1> Fractal of a Line </h1>
+		
+		<h4> Please Enter the number of Iterations  </h4>
+ 	
+	<br>
+
+		
+    <br/><br/>
+		<canvas id='canvasID' width='600' height='400'></canvas>
+		<script>
+	
+			let iteration = prompt('Number of Iterations (max 3)');
+let time = 1;
+
+
+const canvas = document.getElementById('canvasID');
+const ctx = canvas.getContext('2d');
+
+class Fractal {
+  constructor() {
+    // canvas width: 600px, height: 400px
+    this.middle = 200, this.length = 200, this.init = 0,
+    this.start = 0, this.end = 600, this.degrees = [-60, 120, -60];
+  }
+  line(ctx) {
+    ctx.save();
+
+    ctx.beginPath();
+    ctx.moveTo(this.start, this.middle);
+    ctx.lineTo(this.end, this.middle);
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.closePath();
+    ctx.restore();
+  }
+  shape(ctx) { 
+    ctx.beginPath();
+
+    ctx.moveTo(this.start, this.init);
+    ctx.lineTo(this.length, this.init);
+    ctx.lineTo(this.length + (this.length/2), -174);
+    ctx.lineTo(this.length * 2, this.init);
+    ctx.lineTo(this.end, this.init);
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.closePath();
+  }
+  loopThree(ctx) {
+    for (let i = 0; i < 3; i++) {
+      this.begin(ctx, 600, -200, this.degrees[i]);
+      this.loopOne(ctx);
+      this.loopTwo(ctx);
+    }
+  }
+  loopTwo(ctx) {
+    for (let i = 0; i < 3; i++) {
+      this.begin(ctx, 600, -200, this.degrees[i]);
+      this.loopOne(ctx);
+    }
+  }
+  loopOne(ctx) {
+    for (let i = 0; i < 3; i++) {
+      this.begin(ctx, 600, -200, this.degrees[i]);
+    }
+  }
+  startup(ctx, iter) {
+    this.begin(ctx, 0, iter, 0);
+    this.loopOne(ctx);
+  }
+  begin(ctx, x, y, degrees) {
+      ctx.translate(x, (200 * Math.pow(3, y) ));
+      ctx.rotate((Math.PI/180)* degrees);
+      this.shape(ctx);
+  }
+}
+
+const curve = new Fractal();
+
+
+
+function fractal(iter, time) {
+  setTimeout(() => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.save();
+    ctx.scale(1/ Math.pow(3, iter), 1/ Math.pow(3, iter));
+
+    if (iter == 0) curve.begin(ctx, 0, iter, 0);
+
+    else if (iter == 1) {
+      curve.startup(ctx, iter);
+    }
+    else if (iter == 2) {
+      curve.startup(ctx, iter);
+      curve.loopTwo(ctx);
+    }
+    else if (iter == 3) {
+      curve.startup(ctx, iter);
+      curve.loopTwo(ctx);
+      curve.loopThree(ctx);
+    }
+
+    ctx.restore();
+  }, (time * 1000));
+}
+
+
+curve.line(ctx);
+
+for (let i = 0; i < iteration; i++) {
+  fractal(i, time);
+  time +=1;
+}
+</script>
+		
+	</body>
+</html>

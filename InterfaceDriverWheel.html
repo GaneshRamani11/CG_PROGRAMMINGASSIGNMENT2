@@ -1,0 +1,131 @@
+<html>
+	<head>
+	<style>
+		canvas {
+			border: solid black 2px;
+			margin-top: 100px;
+		}
+					body{
+				background-color: darkslategrey
+			}
+			h1{
+				text-align: center;
+				text-emphasis-color: black;
+				border: solid black 2px;
+			}
+			h4{
+				text-align: center;
+				text-emphasis-color: black;
+			}
+		input{
+			border: solid black 3px;
+			width: 200px;
+			height: 30px;
+		}
+			canvas{
+				background-color: white;
+				align-content: center;
+				margin-top: 100px;
+				margin-left: 300px;
+				
+			}
+			      h2
+        {
+            text-decoration-color: white;
+            text-emphasis-color: white;
+            color: white;
+            text-align:justify;
+            text-decoration-color: antiquewhite;
+            text-decoration-line:underline;
+            
+        }
+        ul
+        {
+    list-style-type:none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:black;
+        }
+        li
+        {
+            float: left;
+        }
+  li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration:inherit;
+}
+        li a:hover ,drpdown:hover .drpbtn
+        {
+            background-color: aqua;
+        }
+        li.dropdown {
+    display: inline-block;
+}
+        .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+			button{
+           
+    border: none;
+    color: black;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+        }
+		</style>
+	</head>
+<body>
+	<ul>
+            <li class='active'><a href="Main_window.html">HOME</a></li>
+        <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">ASSIGNMENT</a>
+    <div class="dropdown-content">
+      <a href="Fractal.html" >Fractal Line</a>
+        <a href="DW.html">Driver Wheel</a>
+		<a href="circle.html">Interface in Assignment 1</a>
+		<a href="FractalLineAnimation.html">Fractal Line Animation</a>
+        <a class='active'>Interface Driver Wheel</a>
+    </div>
+    </li>
+    </ul>
+	<h1> DriverWheel </h1>
+	Radius:    <input type="number" id="radius" min="0" max="40" placeholder ="Please input the radius" value=60> 
+	<br>
+	<br>
+	DriverScore:  <input type="number" id="driverscore" min="4" max="100" placeholder="min=4 and Max=100" > 
+	<br>
+	<br>
+	<button id="generate" onclick="draw()"> Generate </button>
+	<button id="clear" > Clear </button>
+	<br>
+	
+	<canvas id='canvasID' width='600' height='400' ></canvas>
+	</body>
+</html>
